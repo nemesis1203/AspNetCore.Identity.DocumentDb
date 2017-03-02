@@ -13,7 +13,7 @@ namespace AspNetCore.Identity.DocumentDb
         {
             get
             {
-                return this.GetType().Name;
+                return this.GetType().FullName;
             }
         }
     }
