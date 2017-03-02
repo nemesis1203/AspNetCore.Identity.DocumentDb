@@ -112,7 +112,7 @@ namespace AspNetCore.Identity.DocumentDb.Stores
             }
 
             TUser foundUser = documentClient.CreateDocumentQuery<TUser>(collectionUri)
-                .Where(u => u.UserName == normalizedUserName && u.DocumentType == typeof(TUser).Name)
+                .Where(u => u.UserName == normalizedUserName && u.DocumentType == typeof(TUser).FullName)
                 .AsEnumerable()
                 .FirstOrDefault();
 
@@ -751,7 +751,7 @@ namespace AspNetCore.Identity.DocumentDb.Stores
             }
 
             TUser user = documentClient.CreateDocumentQuery<TUser>(collectionUri)
-                .Where(u => u.NormalizedEmail == normalizedEmail && u.DocumentType == typeof(TUser).Name)
+                .Where(u => u.NormalizedEmail == normalizedEmail && u.DocumentType == typeof(TUser).FullName)
                 .AsEnumerable()
                 .FirstOrDefault();
 
